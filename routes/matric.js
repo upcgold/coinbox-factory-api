@@ -124,8 +124,8 @@ router.post('/add', function(req, res, next) {
   var number2 = numbers[searchNum2];
 
   var card2 = {
-    "suit" : suit,
-    "number": number,
+    "suit" : suit2,
+    "number": number2,
     "city": location2.city,
     "state": location2.state,
     "zip":  location2.zip,
@@ -139,8 +139,8 @@ router.post('/add', function(req, res, next) {
   var number3 = numbers[searchNum3];
 
   var card3 = {
-    "suit" : suit,
-    "number": number,
+    "suit" : suit3,
+    "number": number3,
     "city": location3.city,
     "state": location3.state,
     "zip":  location3.zip,
@@ -154,8 +154,8 @@ router.post('/add', function(req, res, next) {
   var number4 = numbers[searchNum4];
 
   var card4 = {
-    "suit" : suit,
-    "number": number,
+    "suit" : suit4,
+    "number": number4,
     "city": location4.city,
     "state": location4.state,
     "zip":  location4.zip,
