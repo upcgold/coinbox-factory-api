@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var md5 = require('md5');
+const axios = require('axios')
 
 
 //post a guid, and get back the data for a card
@@ -50,20 +51,97 @@ router.post('/add', function(req, res, next) {
   }
 
 
-  var hash = md5(req.body.matric_value);
+
+  //build hashchain
+  var cards = {};
+  var hash  = md5(req.body.matric_value);
+  var hash2 = md5(hash);
+  var hash3 = md5(hash2);
+  var hash4 = md5(hash3);
+
+
   var searchSuite = hash.substr(0,1);
   var searchNum = hash.substr(-1);;
 
   var suit = suits[searchSuite];
   var number = numbers[searchNum];
 
-
-  var card = {
+  var card1 = {
     "suit" : suit,
     "number": number
   };
+
+
+  var searchSuite2 = hash2.substr(0,1);
+  var searchNum2 = hash2.substr(-1);;
+
+  var suit2 = suits[searchSuite2];
+  var number2 = numbers[searchNum2];
+
+  var card2 = {
+    "suit" : suit2,
+    "number": number2
+  };
+
+  var searchSuite3 = hash3.substr(0,1);
+  var searchNum3 = hash3.substr(-1);;
+
+  var suit3 = suits[searchSuite3];
+  var number3 = numbers[searchNum3];
+
+  var card3 = {
+    "suit" : suit3,
+    "number": number3
+  };
+
+  var searchSuite4 = hash4.substr(0,1);
+  var searchNum4 = hash4.substr(-1);;
+
+  var suit4 = suits[searchSuite4];
+  var number4 = numbers[searchNum4];
+
+  var card4 = {
+    "suit" : suit4,
+    "number": number4
+  };
+
+
+
+  axios.get('http://localhost:3000/candidates/election?matric_value='+hash)
+  .then(elec => {
+    card1.election = elec.data;
+
+    axios.get('http://localhost:3000/candidates/election?matric_value='+hash2)
+    .then(elec => {
+      card2.election = elec.data;
+
+      axios.get('http://localhost:3000/candidates/election?matric_value='+hash3)
+      .then(elec => {
+        card3.election = elec.data;
+
+        axios.get('http://localhost:3000/candidates/election?matric_value='+hash4)
+        .then(elec => {
+          card4.election = elec.data;
+          cards.card1 = card1;
+          cards.card2 = card2;
+          cards.card3 = card3;
+          cards.card4 = card4;
+
+          res.json(cards);
+        })
+
+      })
+    });
+
+  });
   
-  res.send(card);
+
+
+
+
+
+
+
 
 });
 
