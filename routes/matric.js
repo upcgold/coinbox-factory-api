@@ -35,7 +35,7 @@ function extractZip(zipFull1)
 }
 
 /* create matric, add, return json to the user */
-router.post('/add', function(req, res, next) {
+router.get('/add/', function(req, res, next) {
   
   var suits = {
     "0": "spade",
@@ -79,7 +79,7 @@ router.post('/add', function(req, res, next) {
 
   //build hashchain
   var cards = {};
-  var hash  = md5(req.body.matric_value);
+  var hash  = md5(req.query.matric_value);
 
   zipFull1 = hash.replace(/\D/g,'');
   location1 = extractZip(zipFull1);
