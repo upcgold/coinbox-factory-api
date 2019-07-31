@@ -76,28 +76,29 @@ router.get('/add/', function(req, res, next) {
   }
 
 
+  const salt = "777222RAVEN222777";
 
   //build hashchain
   var cards = {};
-  var hash  = md5(req.query.matric_value);
+  var hash  = md5(salt + req.query.matric_value + salt);
 
   zipFull1 = hash.replace(/\D/g,'');
   location1 = extractZip(zipFull1);
   //zipFull1 = "000000000";  uncomment for testing to make sure that invalid zip string is rehashed
 
 
-  var hash2 = md5(hash);
+  var hash2 = md5(hash+salt);
   zipFull2 = hash2.replace(/\D/g,'');
   location2 = extractZip(zipFull2);
 
 
-  var hash3 = md5(hash2);
+  var hash3 = md5(hash2+salt);
   zipFull3 = hash3.replace(/\D/g,'');
   location3 = extractZip(zipFull3);
 
 
 
-  var hash4 = md5(hash3);
+  var hash4 = md5(hash3+salt);
   zipFull4 = hash4.replace(/\D/g,'');
   location4 = extractZip(zipFull4);
 
@@ -109,6 +110,7 @@ router.get('/add/', function(req, res, next) {
   var number = numbers[searchNum];
 
   var card1 = {
+    "hash": hash,
     "suit" : suit,
     "number": number,
     "city": location1.city,
@@ -124,6 +126,7 @@ router.get('/add/', function(req, res, next) {
   var number2 = numbers[searchNum2];
 
   var card2 = {
+    "hash": hash2,
     "suit" : suit2,
     "number": number2,
     "city": location2.city,
@@ -139,6 +142,7 @@ router.get('/add/', function(req, res, next) {
   var number3 = numbers[searchNum3];
 
   var card3 = {
+    "hash": hash3,
     "suit" : suit3,
     "number": number3,
     "city": location3.city,
@@ -154,6 +158,7 @@ router.get('/add/', function(req, res, next) {
   var number4 = numbers[searchNum4];
 
   var card4 = {
+    "hash": hash4,
     "suit" : suit4,
     "number": number4,
     "city": location4.city,
