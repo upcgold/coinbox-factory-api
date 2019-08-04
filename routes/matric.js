@@ -177,21 +177,21 @@ router.get('/add/', function(req, res, next) {
 
 
 
-  axios.get('http://localhost:3000/candidates/election?matric_value='+hash)
+  axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash)
   .then(elec => {
-    card1.election = elec.data;
+    card1.candidate = elec.data;
 
-    axios.get('http://localhost:3000/candidates/election?matric_value='+hash2)
+    axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash2)
     .then(elec => {
-      card2.election = elec.data;
+      card2.candidate = elec.data;
 
-      axios.get('http://localhost:3000/candidates/election?matric_value='+hash3)
+      axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash3)
       .then(elec => {
-        card3.election = elec.data;
+        card3.candidate = elec.data;
 
-        axios.get('http://localhost:3000/candidates/election?matric_value='+hash4)
+        axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash4)
         .then(elec => {
-          card4.election = elec.data;
+          card4.candidate = elec.data;
           cards.card1 = card1;
           cards.card2 = card2;
           cards.card3 = card3;
