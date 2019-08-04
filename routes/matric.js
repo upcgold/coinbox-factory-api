@@ -108,6 +108,15 @@ router.get('/add/', function(req, res, next) {
 
   var suit = suits[searchSuite];
   var number = numbers[searchNum];
+  var query = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch=" + location1.city + location1.state + "&prop=extracts&exsentences=2&explaintext";
+
+
+  var extractText;
+  axios.get(query)
+  .then(wikiExtract => {
+    extractText = wikiExtract;
+  });
+
 
   var card1 = {
     "hash": hash,
