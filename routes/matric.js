@@ -16,7 +16,7 @@ function extractZip(zipFull1)
     for(i=0;i<zipFull1.length-5;i++)
     {
       var location1 = zipcodes.lookup(zipFull1.substr(i,5));
-      if(location1) 
+      if(location1)
       {
         location1Valid = true;
         break;
@@ -36,7 +36,7 @@ function extractZip(zipFull1)
 
 /* create matric, add, return json to the user */
 router.get('/add/', function(req, res, next) {
-  
+
   var suits = {
     "0": "spade",
     "1": "club",
@@ -177,19 +177,19 @@ router.get('/add/', function(req, res, next) {
 
 
 
-  axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash)
+  axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash)
   .then(elec => {
     card1.candidate = elec.data;
 
-    axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash2)
+    axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash2)
     .then(elec => {
       card2.candidate = elec.data;
 
-      axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash3)
+      axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash3)
       .then(elec => {
         card3.candidate = elec.data;
 
-        axios.get('http://localhost:3000/candidates/candidate?matric_value='+hash4)
+        axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash4)
         .then(elec => {
           card4.candidate = elec.data;
           cards.card1 = card1;
@@ -204,7 +204,7 @@ router.get('/add/', function(req, res, next) {
     });
 
   });
-  
+
 
 
 

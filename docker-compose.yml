@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  poli.frickin.rocks:
+    build: .
+    image: mountain/poli.frickin.rocks
+    container_name: polihash
+    ports:
+      # strapi runs on port 1337, so map this port out to port 7002 to access it.  the container always
+      # specifies this it exposes this port in the Dockerfile.  to change this port (1337), change Dockerfile
+      - 7000:7000
+    networks:
+      - mongonet
+    restart: always
+
+networks:
+  mongonet:
+    external: true
+
