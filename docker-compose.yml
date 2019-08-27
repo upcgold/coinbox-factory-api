@@ -2,6 +2,9 @@ version: '2'
 
 services:
   poli.frickin.rocks:
+    environment:
+      - VIRTUAL_HOST=polapi.frkn.rocks
+      - LETSENCRYPT_HOST=polapi.frkn.rocks
     build: .
     image: mountain/poli.frickin.rocks
     container_name: polihash
