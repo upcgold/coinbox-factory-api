@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  candi.frickin.rocks:
+    build: .
+    image: mountain/candi.frickin.rocks
+    container_name: candihash
+    ports:
+      # strapi runs on port 1337, so map this port out to port 7002 to access it.  the container always
+      # specifies this it exposes this port in the Dockerfile.  to change this port (1337), change Dockerfile
+      - 7001:7001
+    networks:
+      - mongonet
+    restart: always
+
+networks:
+  mongonet:
+    external: true
+

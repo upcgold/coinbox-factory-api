@@ -1,13 +1,13 @@
 version: '2'
 
 services:
-  poli.frickin.rocks:
+  2020.polapi:
     environment:
-      - VIRTUAL_HOST=polapi.frkn.rocks
-      - LETSENCRYPT_HOST=polapi.frkn.rocks
+      - VIRTUAL_HOST=2020.polapi.local
+      - LETSENCRYPT_HOST=2020.polapi.local
     build: .
-    image: mountain/poli.frickin.rocks
-    container_name: polihash
+    image: mountain/2020.polapi
+    container_name: 2020.polapi
     ports:
       # strapi runs on port 1337, so map this port out to port 7002 to access it.  the container always
       # specifies this it exposes this port in the Dockerfile.  to change this port (1337), change Dockerfile
@@ -15,6 +15,19 @@ services:
     networks:
       - mongonet
     restart: always
+
+  candihash:
+    build: ./candihash
+    image: mountain/candihash
+    container_name: candihash
+    ports:
+      # strapi runs on port 1337, so map this port out to port 7002 to access it.  the container always
+      # specifies this it exposes this port in the Dockerfile.  to change this port (1337), change Dockerfile
+      - 7001:7001
+    networks:
+      - mongonet
+    restart: always
+
 
 networks:
   mongonet:
