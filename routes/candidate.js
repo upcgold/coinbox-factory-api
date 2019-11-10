@@ -37,7 +37,7 @@ function extractZip(zipFull1)
 
 
 /* create matric, add, return json to the user */
-router.get('/add/', function(req, res, next) {
+router.get('/scan/', function(req, res, next) {
 
   var suits = {
     "0": "spade",
