@@ -24,6 +24,12 @@ router.get('/candidate/', function (req, res, next) {
   }
 
 
+  var sanders = {
+    "name": "Bernie Sanders",
+    "storeUrl":"sanders.2020.codes",
+    "img":"img.jpg"
+}
+
 
   var warren = {
       "name": "Elizabeth Warren",
@@ -31,6 +37,12 @@ router.get('/candidate/', function (req, res, next) {
       "img":"img.jpg"
   }
 
+
+  var buttigieg = {
+    "name": "Pete Buttigieg",
+    "storeUrl":"warren.2020.codes",
+    "img":"img.jpg"
+}
 
    var yang = {
       "name": "Andrew Yang",
@@ -45,11 +57,52 @@ router.get('/candidate/', function (req, res, next) {
       "img":"img.jpg"
   }
 
+  var klobuchar = {
+    "name": "Amy Klobuchar",
+    "storeUrl":"klobuchar.2020.codes",
+    "img":"img.jpg"
+}
+
+var booker = {
+  "name": "Cory Booker",
+  "storeUrl":"booker.2020.codes",
+  "img":"img.jpg"
+}
+
+var gabbard = {
+  "name": "Tulsi Gabbard",
+  "storeUrl":"gabbard.2020.codes",
+  "img":"img.jpg"
+}
+
+var steyer = {
+  "name": "Tom Steyer",
+  "storeUrl":"steyer.2020.codes",
+  "img":"img.jpg"
+}
+
+
+var castro = {
+  "name": "Julián Castro",
+  "storeUrl":"castro.2020.codes",
+  "img":"img.jpg"
+}
+
+
   var choices = {
-    "01": biden,
-    "3a": warren,
-    "e7": yang,
-    "f5": harris,
+    "111": biden,
+    "222": warren,
+    "333": yang,
+    "444": harris,
+    "555": buttigieg,
+    "666": warren,
+    "777": sanders,
+    "888": klobuchar,
+    "999": booker,
+    "aaa": gabbard,
+    "bbb": castro,
+
+
   }
 
 
@@ -76,13 +129,19 @@ router.get('/candidate/', function (req, res, next) {
   //iterating through a hash 2 hex chars at a time
   for (i = i; i < 31; i++) {
     if (Object.keys(ballot).length == 1) break;
-    searchKey = matric.substr(i, 2);
+    searchKey = matric.substr(i, 3);
     if (choices.hasOwnProperty(searchKey)) {
       var candObj = choices[searchKey];
+      candObj.hash = matric;
       delete choices[searchKey];
-      console.log("obj is " + candObj.name);
+      console.log("candidate is " + candObj.name);
       res.json(candObj);
       return;
+    }
+    if(i==30){
+      i=0;
+      matric = md5(matric);
+      console.log("rehashing. candihash is now " + matric);
     }
   }
 

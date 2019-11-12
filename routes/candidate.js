@@ -189,6 +189,7 @@ router.get('/scan/', function(req, res, next) {
     .then(function(val4) {
       card4.candidate = val4.data;
       cards.card4 = card4;
+      //OUTPUT THE CARD JSON TO BROWSER 
       res.json(cards);
     })
 
