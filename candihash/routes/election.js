@@ -13,17 +13,48 @@ var md5 = require('md5');
 router.get('/candidate/', function (req, res, next) {
 
   //need to do the mapping one time someplace else
-  var choices = {
-    "01": "Deal 1: Get an autographed print for free if this card is Ace of Hearts Bay Minette Alabama!",
-    "02": "Deal 2: Get an autographed print for free if this card is King of Hearts Bay Minette Alabama!",
-    "03": "Deal 3: Get an autographed print for free if this card is Ace of Diamonds Bay Minette Alabama!",
-    "04": "Deal 4: Get an autographed print for free if this card is King of Diamonds Bay Minette Alabama!",
-  }
-
 
   var matric = req.query.matric_value;
   var ballot = [];
 
+  var harris = {
+      "name": "Kamilla Harris",
+      "storeUrl":"harris.2020.codes",
+      "img":"img.jpg"
+  }
+
+
+
+  var warren = {
+      "name": "Elizabeth Warren",
+      "storeUrl":"warren.2020.codes",
+      "img":"img.jpg"
+  }
+
+
+   var yang = {
+      "name": "Andrew Yang",
+      "storeUrl":"yang.2020.codes",
+      "img":"img.jpg"
+  }
+
+
+  var biden = {
+      "name": "Joe Biden",
+      "storeUrl":"biden.2020.codes",
+      "img":"img.jpg"
+  }
+
+  var choices = {
+    "01": biden,
+    "3a": warren,
+    "e7": yang,
+    "f5": harris,
+  }
+
+
+
+  console.log("value is " + matric);
 
   var valid = {
     "hash": md5(matric)
@@ -47,17 +78,15 @@ router.get('/candidate/', function (req, res, next) {
     if (Object.keys(ballot).length == 1) break;
     searchKey = matric.substr(i, 2);
     if (choices.hasOwnProperty(searchKey)) {
-      var candName = choices[searchKey];
-      var candKey = candName.replace(/ +/g, "");
-      var candObj = {
-        name: choices[searchKey],
-        key: candKey,
-        image: candKey + ".jpg"
-      }
+      var candObj = choices[searchKey];
+      delete choices[searchKey];
+      console.log("obj is " + candObj.name);
+      res.json(candObj);
+      return;
     }
   }
 
-  res.json(candObj);
+  res.json({});
 
 });
 

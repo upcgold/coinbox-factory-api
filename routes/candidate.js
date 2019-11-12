@@ -110,14 +110,6 @@ router.get('/scan/', function(req, res, next) {
 
   var suit = suits[searchSuite];
   var number = numbers[searchNum];
-  var query = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch=" + location1.city + location1.state + "&prop=extracts&exsentences=2&explaintext";
-
-
-  var extractText;
-  axios.get(query)
-  .then(wikiExtract => {
-    extractText = wikiExtract;
-  });
 
 
   var card1 = {
@@ -177,44 +169,42 @@ router.get('/scan/', function(req, res, next) {
     "zip":  location4.zip,
   };
 
+  getCandidate(hash)
+  .then(function(val) {
+    card1.candidate = val.data;
+    cards.card1 = card1
+    
+    getCandidate(hash2)
+    .then(function(val2) {
+      card2.candidate = val2.data;
+      cards.card2 = card2;
+
+    getCandidate(hash3)
+    .then(function(val3) {
+      card3.candidate = val3.data;
+      cards.card3 = card3;
+    })
+
+    getCandidate(hash4)
+    .then(function(val4) {
+      card4.candidate = val4.data;
+      cards.card4 = card4;
+      res.json(cards);
+    })
 
 
-  axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash)
-  .then(elec => {
-    card1.candidate = elec.data;
-
-    axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash2)
-    .then(elec => {
-      card2.candidate = elec.data;
-
-      axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash3)
-      .then(elec => {
-        card3.candidate = elec.data;
-
-        axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash4)
-        .then(elec => {
-          card4.candidate = elec.data;
-          cards.card1 = card1;
-          cards.card2 = card2;
-          cards.card3 = card3;
-          cards.card4 = card4;
-
-          res.json(cards);
-        })
-
-      })
-    });
+    })
 
   });
-
-
-
-
-
-
+  
 
 
 
 });
+
+function getCandidate(hash) {
+  return axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash);
+}
+
 
 module.exports = router;
