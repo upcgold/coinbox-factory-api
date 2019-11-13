@@ -90,17 +90,17 @@ var castro = {
 
 
   var choices = {
-    "111": biden,
-    "222": warren,
-    "333": yang,
-    "444": harris,
-    "555": buttigieg,
-    "666": warren,
-    "777": sanders,
-    "888": klobuchar,
-    "999": booker,
-    "aaa": gabbard,
-    "bbb": castro,
+    "1": biden,
+    "2": warren,
+    "3": yang,
+    "4": harris,
+    "5": buttigieg,
+    "6": warren,
+    "7": sanders,
+    "8": klobuchar,
+    "9": booker,
+    "a": gabbard,
+    "b": castro,
 
 
   }
@@ -127,12 +127,14 @@ var castro = {
 
 
   //iterating through a hash 2 hex chars at a time
+  var rehash = 0;
   for (i = i; i < 31; i++) {
     if (Object.keys(ballot).length == 1) break;
-    searchKey = matric.substr(i, 3);
+    searchKey = matric.substr(i, 1);
     if (choices.hasOwnProperty(searchKey)) {
       var candObj = choices[searchKey];
       candObj.hash = matric;
+      candObj.difficulty = rehash;
       delete choices[searchKey];
       console.log("candidate is " + candObj.name);
       res.json(candObj);
@@ -140,6 +142,7 @@ var castro = {
     }
     if(i==30){
       i=0;
+      rehash++;
       matric = md5(matric);
       console.log("rehashing. candihash is now " + matric);
     }
