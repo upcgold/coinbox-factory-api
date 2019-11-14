@@ -3,8 +3,8 @@ version: '2'
 services:
   2020.polapi:
     environment:
-      - VIRTUAL_HOST=api.2020.codes.local
-      - LETSENCRYPT_HOST=api.2020.codes.local
+      - VIRTUAL_HOST=api.2020.codes
+      - LETSENCRYPT_HOST=api.2020.codes
     build: .
     image: mountain/2020.polapi
     container_name: 2020.polapi
