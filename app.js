@@ -6,8 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var candidateRouter = require('./routes/candidate');
+var app = express()
 
-var app = express();
+var cors = require('cors')
+
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -9,6 +9,12 @@ var debug = require('debug')('polhash:server');
 var http = require('http');
 var https = require('https');
 var fs  = require('fs');
+
+const cors = require('cors')
+
+app.use(cors())
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -27,16 +33,14 @@ var server = http.createServer(app);
  */
 
 
-https.createServer({
-  key: fs.readFileSync('certs/server.key'),
-  cert: fs.readFileSync('certs/server.cert')
-}, app).listen(7000, () => {
-  console.log('Listening...')
-});
+//https.createServer({
+//  key: fs.readFileSync('certs/server.key'),
+//  cert: fs.readFileSync('certs/server.cert')
+//}, app).listen(7000, '0.0.0.0');
 
-//server.listen(port, '0.0.0.0');
-//server.on('error', onError);
-//server.on('listening', onListening);
+server.listen(port, '0.0.0.0');
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
