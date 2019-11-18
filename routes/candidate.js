@@ -40,22 +40,22 @@ function extractZip(zipFull1)
 router.get('/scan/', function(req, res, next) {
 
   var suits = {
-    "0": "spade",
-    "1": "club",
-    "2": "diamond",
-    "3": "heart",
-    "4": "spade",
-    "5": "club",
-    "6": "diamond",
-    "7": "heart",
-    "8": "spade",
-    "9": "club",
-    "a": "diamond",
-    "b": "heart",
-    "c": "spade",
-    "d": "club",
-    "e": "diamond",
-    "f": "heart"
+    "0": "S",
+    "1": "C",
+    "2": "D",
+    "3": "H",
+    "4": "S",
+    "5": "C",
+    "6": "D",
+    "7": "H",
+    "8": "S",
+    "9": "C",
+    "a": "D",
+    "b": "H",
+    "c": "S",
+    "d": "C",
+    "e": "D",
+    "f": "H"
   }
 
   var numbers = {
