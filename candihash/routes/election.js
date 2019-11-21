@@ -27,65 +27,65 @@ router.get('/candidate/', function (req, res, next) {
   var sanders = {
     "name": "Bernie Sanders",
     "storeUrl":"sanders.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+    "img":"https://upload.wikimedia.org/wikipedia/commons/0/0c/Bernie_Sanders_July_2019_%28cropped%29.jpg"
   }
 
 
   var warren = {
       "name": "Elizabeth Warren",
       "storeUrl":"warren.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg"
   }
 
 
   var buttigieg = {
     "name": "Pete Buttigieg",
     "storeUrl":"warren.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+    "img":"https://upload.wikimedia.org/wikipedia/commons/b/bf/Pete_Buttigieg_by_Gage_Skidmore.jpg"
   }
 
    var yang = {
       "name": "Andrew Yang",
       "storeUrl":"yang.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/f/f6/Andrew_Yang_by_Gage_Skidmore.jpg"
   }
 
 
   var biden = {
       "name": "Joe Biden",
       "storeUrl":"biden.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/6/64/Biden_2013.jpg"
   }
 
   var klobuchar = {
     "name": "Amy Klobuchar",
     "storeUrl":"klobuchar.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+    "img":"https://upload.wikimedia.org/wikipedia/commons/b/b7/Amy_Klobuchar%2C_official_portrait%2C_113th_Congress.jpg"
   }
 
 var booker = {
   "name": "Cory Booker",
   "storeUrl":"booker.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/5/59/Cory_Booker%2C_official_portrait%2C_114th_Congress.jpg"
 }
 
 var gabbard = {
   "name": "Tulsi Gabbard",
   "storeUrl":"gabbard.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/2/2a/Tulsi_Gabbard%2C_official_portrait%2C_113th_Congress.jpg"
 }
 
 var steyer = {
   "name": "Tom Steyer",
   "storeUrl":"steyer.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/6/61/Tom_Steyer_by_Gage_Skidmore.jpg"
 }
 
 
 var castro = {
   "name": "Julián Castro",
   "storeUrl":"castro.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/c/c6/Juli%C3%A1n_Castro%27s_Official_HUD_Portrait.jpg"
 }
 
 
