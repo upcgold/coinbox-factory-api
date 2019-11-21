@@ -20,72 +20,72 @@ router.get('/candidate/', function (req, res, next) {
   var harris = {
       "name": "Kamilla Harris",
       "storeUrl":"harris.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+      "img":"https://image.cnbcfm.com/api/v1/image/105867117-1556049501630rtx6svfw.jpg?v=1556049563&w=678&h=381"
   }
 
 
   var sanders = {
     "name": "Bernie Sanders",
     "storeUrl":"sanders.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/0/0c/Bernie_Sanders_July_2019_%28cropped%29.jpg"
+    "img":"https://cbsnews3.cbsistatic.com/hub/i/r/2019/10/23/16275a12-988d-496b-845a-7ac47b2f6c4a/thumbnail/1200x630/08a8c174b7ad074a7d623866c51cc413/cbsn-fusion-will-congresswoman-rashida-tlaib-endorse-bernie-sanders-thumbnail-382979-640x360.jpg"
   }
 
 
   var warren = {
       "name": "Elizabeth Warren",
       "storeUrl":"warren.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg"
+      "img":"https://iadsb.tmgrup.com.tr/612016/645/344/1/161/800/587?u=https://idsb.tmgrup.com.tr/2018/12/31/us-democrat-elizabeth-warren-enters-2020-presidential-race-1546281406284.jpg"
   }
 
 
   var buttigieg = {
     "name": "Pete Buttigieg",
     "storeUrl":"warren.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/b/bf/Pete_Buttigieg_by_Gage_Skidmore.jpg"
+    "img":"https://cdn.cnn.com/cnnnext/dam/assets/191119201838-10-pete-buttigieg-lead-image-large-169.jpg"
   }
 
    var yang = {
       "name": "Andrew Yang",
       "storeUrl":"yang.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/f/f6/Andrew_Yang_by_Gage_Skidmore.jpg"
+      "img":"https://s.abcnews.com/images/Politics/andrew-yang-file-01-rtr-jc-190514_hpMain_16x9_992.jpg"
   }
 
 
   var biden = {
       "name": "Joe Biden",
       "storeUrl":"biden.2020.codes",
-      "img":"https://upload.wikimedia.org/wikipedia/commons/6/64/Biden_2013.jpg"
+      "img":"https://cdn.theatlantic.com/assets/media/img/mt/2019/04/RTX6T48T/lead_720_405.jpg?mod=1556212049"
   }
 
   var klobuchar = {
     "name": "Amy Klobuchar",
     "storeUrl":"klobuchar.2020.codes",
-    "img":"https://upload.wikimedia.org/wikipedia/commons/b/b7/Amy_Klobuchar%2C_official_portrait%2C_113th_Congress.jpg"
+    "img":"https://static01.nyt.com/images/2019/09/10/us/politics/10-klobuchar-candidatepage/10-klobuchar-candidatepage-facebookJumbo.jpg"
   }
 
 var booker = {
   "name": "Cory Booker",
   "storeUrl":"booker.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/5/59/Cory_Booker%2C_official_portrait%2C_114th_Congress.jpg"
+  "img":"https://miro.medium.com/max/4096/1*zUx6JY4uxY4wfnyzn1Cfuw.jpeg"
 }
 
 var gabbard = {
   "name": "Tulsi Gabbard",
   "storeUrl":"gabbard.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/2/2a/Tulsi_Gabbard%2C_official_portrait%2C_113th_Congress.jpg"
+  "img":"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2019/10/gettyimages-1173866046.jpg?itok=9ZDfbFd2&c=84d30345b25300b88238c0e74ec8a23d"
 }
 
 var steyer = {
   "name": "Tom Steyer",
   "storeUrl":"steyer.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/6/61/Tom_Steyer_by_Gage_Skidmore.jpg"
+  "img":"https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/10/screen_shot_2019-10-13_at_2.35.21_pm.png"
 }
 
 
 var castro = {
   "name": "Julián Castro",
   "storeUrl":"castro.2020.codes",
-  "img":"https://upload.wikimedia.org/wikipedia/commons/c/c6/Juli%C3%A1n_Castro%27s_Official_HUD_Portrait.jpg"
+  "img":"https://cdn.cnn.com/cnnnext/dam/assets/190717133057-01b-julian-castro-restricted-large-169.jpg"
 }
 
 
