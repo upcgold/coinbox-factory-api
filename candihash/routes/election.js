@@ -20,72 +20,72 @@ router.get('/candidate/', function (req, res, next) {
   var harris = {
       "name": "Kamilla Harris",
       "storeUrl":"harris.2020.codes",
-      "img":"img.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
   }
 
 
   var sanders = {
     "name": "Bernie Sanders",
     "storeUrl":"sanders.2020.codes",
-    "img":"img.jpg"
-}
+    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  }
 
 
   var warren = {
       "name": "Elizabeth Warren",
       "storeUrl":"warren.2020.codes",
-      "img":"img.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
   }
 
 
   var buttigieg = {
     "name": "Pete Buttigieg",
     "storeUrl":"warren.2020.codes",
-    "img":"img.jpg"
-}
+    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  }
 
    var yang = {
       "name": "Andrew Yang",
       "storeUrl":"yang.2020.codes",
-      "img":"img.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
   }
 
 
   var biden = {
       "name": "Joe Biden",
       "storeUrl":"biden.2020.codes",
-      "img":"img.jpg"
+      "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
   }
 
   var klobuchar = {
     "name": "Amy Klobuchar",
     "storeUrl":"klobuchar.2020.codes",
-    "img":"img.jpg"
-}
+    "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
+  }
 
 var booker = {
   "name": "Cory Booker",
   "storeUrl":"booker.2020.codes",
-  "img":"img.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
 }
 
 var gabbard = {
   "name": "Tulsi Gabbard",
   "storeUrl":"gabbard.2020.codes",
-  "img":"img.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
 }
 
 var steyer = {
   "name": "Tom Steyer",
   "storeUrl":"steyer.2020.codes",
-  "img":"img.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
 }
 
 
 var castro = {
   "name": "Julián Castro",
   "storeUrl":"castro.2020.codes",
-  "img":"img.jpg"
+  "img":"https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg"
 }
 
 
@@ -101,8 +101,7 @@ var castro = {
     "9": booker,
     "a": gabbard,
     "b": castro,
-
-
+    "c": steyer
   }
 
 
