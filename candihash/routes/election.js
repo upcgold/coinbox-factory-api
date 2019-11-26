@@ -88,6 +88,11 @@ var castro = {
   "img":"https://cdn.cnn.com/cnnnext/dam/assets/190717133057-01b-julian-castro-restricted-large-169.jpg"
 }
 
+var bloomberg = {
+  "name": "Michael Bloomberg",
+  "storeUrl":"bloomberg.2020.codes",
+  "img":"https://compote.slate.com/images/2bec7c0b-5913-4ffc-9d72-8cfca894f27d.jpeg?width=780&height=520&rect=5137x3425&offset=0x277"
+}
 
   var choices = {
     "1": biden,
@@ -101,7 +106,8 @@ var castro = {
     "9": booker,
     "a": gabbard,
     "b": castro,
-    "c": steyer
+    "c": steyer,
+    "d": bloomberg
   }
 
 

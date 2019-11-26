@@ -94,17 +94,6 @@ router.get('/scan/', function(req, res, next) {
   location2 = extractZip(zipFull2);
 
 
-  var hash3 = md5(hash2+salt);
-  zipFull3 = hash3.replace(/\D/g,'');
-  location3 = extractZip(zipFull3);
-
-
-
-  var hash4 = md5(hash3+salt);
-  zipFull4 = hash4.replace(/\D/g,'');
-  location4 = extractZip(zipFull4);
-
-
   var searchSuite = hash.substr(0,1);
   var searchNum = hash.substr(-1);;
 
@@ -137,69 +126,27 @@ router.get('/scan/', function(req, res, next) {
     "zip":  location2.zip,
   };
 
-
-  var searchSuite3 = hash3.substr(0,1);
-  var searchNum3 = hash3.substr(-1);;
-
-  var suit3 = suits[searchSuite3];
-  var number3 = numbers[searchNum3];
-
-  var card3 = {
-    "hash": hash3,
-    "suit" : suit3,
-    "number": number3,
-    "city": location3.city,
-    "state": location3.state,
-    "zip":  location3.zip,
-  };
-
-
-  var searchSuite4 = hash4.substr(0,1);
-  var searchNum4 = hash4.substr(-1);;
-
-  var suit4 = suits[searchSuite4];
-  var number4 = numbers[searchNum4];
-
-  var card4 = {
-    "hash": hash4,
-    "suit" : suit4,
-    "number": number4,
-    "city": location4.city,
-    "state": location4.state,
-    "zip":  location4.zip,
-  };
-
   getCandidate(hash)
   .then(function(val) {
     card1.candidate = val.data;
     cards.card1 = card1
     
-    getCandidate(hash2)
-    .then(function(val2) {
-      card2.candidate = val2.data;
-      cards.card2 = card2;
+    val2 = {};
+    val2.data = {};
+    val2.data.name="President Donald J. Trump";
+    val2.data.storeUrl="trump.2020.codes";
+    val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
+    val2.data.hash=card1.candidate.hash;
+    val2.data.difficulty=0;
 
-    getCandidate(hash3)
-    .then(function(val3) {
-      card3.candidate = val3.data;
-      cards.card3 = card3;
-    })
-
-    getCandidate(hash4)
-    .then(function(val4) {
-      card4.candidate = val4.data;
-      cards.card4 = card4;
-      //OUTPUT THE CARD JSON TO BROWSER 
-      res.json(cards);
-    })
+    
+    card2.candidate = val2.data;
+    cards.card2 = card2;
 
 
-    })
-
+    res.json(cards);
   });
   
-
-
 
 });
 
