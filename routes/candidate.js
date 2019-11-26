@@ -136,7 +136,7 @@ router.get('/scan/', function(req, res, next) {
     val2.data.name="President Donald J. Trump";
     val2.data.storeUrl="trump.2020.codes";
     val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
-    val2.data.hash=card1.candidate.hash;
+    val2.data.hash=hash2;
     val2.data.difficulty=0;
 
     
