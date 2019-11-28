@@ -138,6 +138,10 @@ router.get('/scan/', function(req, res, next) {
     val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
     val2.data.hash=hash2;
     val2.data.difficulty=0;
+    val2.data.videos = {};
+    val2.data.videos.economy = "m-AYdkXpDA8";
+
+
 
     
     card2.candidate = val2.data;
