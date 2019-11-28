@@ -78,7 +78,7 @@ router.get('/scan/', function(req, res, next) {
   }
 
 
-  const salt = "777222RAVEN222777";
+  const salt = "11:11_777222RAVEN222777_22:22";
 
   //build hashchain
   var cards = {};

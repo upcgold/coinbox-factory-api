@@ -4,7 +4,7 @@ RUN mkdir -p /scan
 #COPY . /egg
 #RUN yarn run build
 #RUN yarn global add serve
-#RUN apt update &&  apt install mongodb
+RUN apt update &&  apt install vim
 WORKDIR /scan
 COPY . /scan
 RUN npm install
