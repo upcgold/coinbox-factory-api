@@ -4,7 +4,7 @@ RUN mkdir -p /scan
 #COPY . /egg
 #RUN yarn run build
 #RUN yarn global add serve
-RUN apt update &&  apt install vim lsof
+RUN apt update &&  apt install vim lsof -y
 WORKDIR /scan
 COPY . /scan
 RUN npm install

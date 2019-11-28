@@ -147,7 +147,7 @@ router.get('/scan/', function(req, res, next) {
     card2.candidate = val2.data;
     cards.card2 = card2;
 
-
+    console.log(cards);
     res.json(cards);
   });
   
