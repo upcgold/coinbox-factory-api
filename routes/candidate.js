@@ -139,7 +139,7 @@ router.get('/scan/', function(req, res, next) {
     val2.data.hash=hash2;
     val2.data.difficulty=0;
     val2.data.videos = {};
-    val2.data.videos.economy = "m-AYdkXpDA8";
+    val2.data.videos.economy = "Tig8y7L2g1s";
 
 
 
