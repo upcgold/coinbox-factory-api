@@ -20,7 +20,10 @@ router.get('/candidate/', function (req, res, next) {
   var harris = {
       "name": "Kamilla Harris",
       "storeUrl":"harris.2020.codes",
-      "img":"https://image.cnbcfm.com/api/v1/image/105867117-1556049501630rtx6svfw.jpg?v=1556049563&w=678&h=381"
+      "img":"https://image.cnbcfm.com/api/v1/image/105867117-1556049501630rtx6svfw.jpg?v=1556049563&w=678&h=381",
+      "videos": {
+        "economy": "w5RWUolzwWU"//youtube vid id
+      }
   }
 
 
