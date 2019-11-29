@@ -84,25 +84,27 @@ router.get('/scan/', function(req, res, next) {
   var cards = {};
   var hash  = md5(salt + req.query.matric_value + salt);
 
-  zipFull1 = hash.replace(/\D/g,'');
+  var hashBlue = md5(hash + "777blue777");
+  zipFull1 = hashBlue.replace(/\D/g,'');
   location1 = extractZip(zipFull1);
   //zipFull1 = "000000000";  uncomment for testing to make sure that invalid zip string is rehashed
 
 
-  var hash2 = md5(hash+salt);
-  zipFull2 = hash2.replace(/\D/g,'');
+  var hashRed = md5(hash + "777red777");
+  zipFull2 = hashRed.replace(/\D/g,'');
   location2 = extractZip(zipFull2);
 
 
-  var searchSuite = hash.substr(0,1);
-  var searchNum = hash.substr(-1);;
+  var searchSuite = hashBlue.substr(0,1);
+  var searchNum = hashBlue.substr(-1);;
 
   var suit = suits[searchSuite];
   var number = numbers[searchNum];
 
 
   var card1 = {
-    "hash": hash,
+    "parentHash": hash,
+    "hash": hashBlue,
     "suit" : suit,
     "number": number,
     "city": location1.city,
@@ -111,14 +113,15 @@ router.get('/scan/', function(req, res, next) {
   };
 
 
-  var searchSuite2 = hash2.substr(0,1);
-  var searchNum2 = hash2.substr(-1);;
+  var searchSuite2 = hashRed.substr(0,1);
+  var searchNum2 = hashRed.substr(-1);;
 
   var suit2 = suits[searchSuite2];
   var number2 = numbers[searchNum2];
 
   var card2 = {
-    "hash": hash2,
+    "parentHash": hash,
+    "hash": hashRed,
     "suit" : suit2,
     "number": number2,
     "city": location2.city,
@@ -126,7 +129,7 @@ router.get('/scan/', function(req, res, next) {
     "zip":  location2.zip,
   };
 
-  getCandidate(hash)
+  getCandidate(hashBlue)
   .then(function(val) {
     card1.candidate = val.data;
     cards.card1 = card1
@@ -136,7 +139,7 @@ router.get('/scan/', function(req, res, next) {
     val2.data.name="President Donald J. Trump";
     val2.data.storeUrl="trump.2020.codes";
     val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
-    val2.data.hash=hash2;
+    val2.data.hash=hashRed;
     val2.data.difficulty=0;
     val2.data.videos = {};
     val2.data.videos.economy = "Tig8y7L2g1s";
