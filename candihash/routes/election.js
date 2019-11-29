@@ -18,7 +18,7 @@ router.get('/candidate/', function (req, res, next) {
   var ballot = [];
 
   var harris = {
-  "matchupId": "Trump_Harris",
+  "matchupId": "trumpharris",
       "name": "Kamilla Harris",
       "storeUrl":"harris.2020.codes",
       "img":"https://image.cnbcfm.com/api/v1/image/105867117-1556049501630rtx6svfw.jpg?v=1556049563&w=678&h=381",
@@ -29,7 +29,7 @@ router.get('/candidate/', function (req, res, next) {
 
 
   var sanders = {
-  "matchupId": "Trump_Sanders",
+  "matchupId": "trumpsanders",
     "name": "Bernie Sanders",
     "storeUrl":"sanders.2020.codes",
     "img":"https://cbsnews3.cbsistatic.com/hub/i/r/2019/10/23/16275a12-988d-496b-845a-7ac47b2f6c4a/thumbnail/1200x630/08a8c174b7ad074a7d623866c51cc413/cbsn-fusion-will-congresswoman-rashida-tlaib-endorse-bernie-sanders-thumbnail-382979-640x360.jpg",
@@ -40,7 +40,7 @@ router.get('/candidate/', function (req, res, next) {
 
 
   var warren = {
-  "matchupId": "Trump_Warren",
+  "matchupId": "trumpwarren",
       "name": "Elizabeth Warren",
       "storeUrl":"warren.2020.codes",
       "img":"https://iadsb.tmgrup.com.tr/612016/645/344/1/161/800/587?u=https://idsb.tmgrup.com.tr/2018/12/31/us-democrat-elizabeth-warren-enters-2020-presidential-race-1546281406284.jpg",
@@ -51,7 +51,7 @@ router.get('/candidate/', function (req, res, next) {
 
 
   var buttigieg = {
-  "matchupId": "Trump_Buttigieg",
+  "matchupId": "trumpbuttigieg",
     "name": "Pete Buttigieg",
     "storeUrl":"warren.2020.codes",
     "img":"https://cdn.cnn.com/cnnnext/dam/assets/191119201838-10-pete-buttigieg-lead-image-large-169.jpg",
@@ -61,7 +61,7 @@ router.get('/candidate/', function (req, res, next) {
   }
 
    var yang = {
-  "matchupId": "Trump_Yang",
+  "matchupId": "trumpyang",
       "name": "Andrew Yang",
       "storeUrl":"yang.2020.codes",
       "img":"https://s.abcnews.com/images/Politics/andrew-yang-file-01-rtr-jc-190514_hpMain_16x9_992.jpg",
@@ -72,7 +72,7 @@ router.get('/candidate/', function (req, res, next) {
 
 
   var biden = {
-  "matchupId": "Trump_Biden",
+  "matchupId": "trumpbiden",
       "name": "Joe Biden",
       "storeUrl":"biden.2020.codes",
       "img":"https://cdn.theatlantic.com/assets/media/img/mt/2019/04/RTX6T48T/lead_720_405.jpg?mod=1556212049",
@@ -82,7 +82,7 @@ router.get('/candidate/', function (req, res, next) {
     }
 
   var klobuchar = {
-  "matchupId": "Trump_Klobuchar",
+  "matchupId": "trumpklobuchar",
     "name": "Amy Klobuchar",
     "storeUrl":"klobuchar.2020.codes",
     "img":"https://static01.nyt.com/images/2019/09/10/us/politics/10-klobuchar-candidatepage/10-klobuchar-candidatepage-facebookJumbo.jpg",
@@ -92,7 +92,7 @@ router.get('/candidate/', function (req, res, next) {
   }
 
 var booker = {
-  "matchupId": "Trump_Booker",
+  "matchupId": "trumpbooker",
   "name": "Cory Booker",
   "storeUrl":"booker.2020.codes",
   "img":"https://miro.medium.com/max/4096/1*zUx6JY4uxY4wfnyzn1Cfuw.jpeg",
@@ -102,7 +102,7 @@ var booker = {
 }
 
 var gabbard = {
-  "matchupId": "Trump_Gabbard",
+  "matchupId": "trumpgabbard",
   "name": "Tulsi Gabbard",
   "storeUrl":"gabbard.2020.codes",
   "img":"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2019/10/gettyimages-1173866046.jpg?itok=9ZDfbFd2&c=84d30345b25300b88238c0e74ec8a23d",
@@ -112,7 +112,7 @@ var gabbard = {
 }
 
 var steyer = {
-  "matchupId": "Trump_Steyer",
+  "matchupId": "trumpsteyer",
   "name": "Tom Steyer",
   "storeUrl":"steyer.2020.codes",
   "img":"https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/10/screen_shot_2019-10-13_at_2.35.21_pm.png",
@@ -123,7 +123,7 @@ var steyer = {
 
 
 var castro = {
-  "matchupId": "Trump_Castro",
+  "matchupId": "trumpcastro",
   "name": "Julián Castro",
   "storeUrl":"castro.2020.codes",
   "img":"https://cdn.cnn.com/cnnnext/dam/assets/190717133057-01b-julian-castro-restricted-large-169.jpg",
@@ -133,7 +133,7 @@ var castro = {
 }
 
 var bloomberg = {
-  "matchupId": "Trump_Bloomberg",
+  "matchupId": "trumpbloomberg",
   "name": "Michael Bloomberg",
   "storeUrl":"bloomberg.2020.codes",
   "img":"https://compote.slate.com/images/2bec7c0b-5913-4ffc-9d72-8cfca894f27d.jpeg?width=780&height=520&rect=5137x3425&offset=0x277",
