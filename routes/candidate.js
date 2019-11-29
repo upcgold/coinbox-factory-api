@@ -140,6 +140,7 @@ router.get('/scan/', function(req, res, next) {
     val2.data.storeUrl="trump.2020.codes";
     val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
     val2.data.hash=hashRed;
+    val2.data.matchupId=val.data.matchupId;
     val2.data.difficulty=0;
     val2.data.videos = {};
     val2.data.videos.economy = "Tig8y7L2g1s";
