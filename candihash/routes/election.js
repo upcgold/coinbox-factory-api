@@ -29,7 +29,7 @@ router.get('/candidate/', function (req, res, next) {
 
 
   var sanders = {
-  "matchupId": "Trumpsanderses",
+  "matchupId": "Trumpsanders",
     "name": "Bernie Sanders",
     "storeUrl":"sanders.2020.codes",
     "img":"https://cbsnews3.cbsistatic.com/hub/i/r/2019/10/23/16275a12-988d-496b-845a-7ac47b2f6c4a/thumbnail/1200x630/08a8c174b7ad074a7d623866c51cc413/cbsn-fusion-will-congresswoman-rashida-tlaib-endorse-bernie-sanders-thumbnail-382979-640x360.jpg",
