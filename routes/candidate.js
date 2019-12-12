@@ -131,24 +131,22 @@ router.get('/scan/', function(req, res, next) {
 
   getCandidate(hashBlue)
   .then(function(val) {
-    card1.candidate = val.data;
+    card1.name = val.data.name;
+    card1.matchupId = val.data.matchupId;
+    card1.storeUrl = val.data.storeUrl;
+    card1.img = val.data.img;
+    card1.video = val.data.video;
     cards.card1 = card1
     
-    val2 = {};
-    val2.data = {};
-    val2.data.name="President Donald J. Trump";
-    val2.data.storeUrl="trump.2020.codes";
-    val2.data.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
-    val2.data.hash=hashRed;
-    val2.data.matchupId=val.data.matchupId;
-    val2.data.difficulty=0;
-    val2.data.videos = {};
-    val2.data.videos.economy = "Tig8y7L2g1s";
 
+    card2.name="President Donald J. Trump";
+    card2.storeUrl="trump.2020.codes";
+    card2.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
+    card2.hash=hashRed;
+    card2.matchupId=val.data.matchupId;
+    card2.difficulty=0;
+    card2.video = "Tig8y7L2g1s";
 
-
-    
-    card2.candidate = val2.data;
     cards.card2 = card2;
 
     console.log(cards);
