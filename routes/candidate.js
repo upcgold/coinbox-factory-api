@@ -103,6 +103,7 @@ router.get('/scan/', function(req, res, next) {
 
 
   var card1 = {
+    "originalScan": req.query.matric_value,
     "parentHash": hash,
     "hash": hashBlue,
     "suit" : suit,
@@ -120,6 +121,7 @@ router.get('/scan/', function(req, res, next) {
   var number2 = numbers[searchNum2];
 
   var card2 = {
+    "originalScan": req.query.matric_value,
     "parentHash": hash,
     "hash": hashRed,
     "suit" : suit2,
