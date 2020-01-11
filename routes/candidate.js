@@ -3,6 +3,7 @@ var router = express.Router();
 var md5 = require('md5');
 const axios = require('axios')
 var zipcodes = require('zipcodes');
+const salt = "11:11_777222RAVEN222777_22:22";
 
 //post a guid, and get back the data for a card
 //this card will be cached in mongo
@@ -34,6 +35,47 @@ function extractZip(zipFull1)
   return location1;
 }
 
+
+function extractZips(zipFull1,targetCount)
+{
+
+  location1Valid = false;
+  var currentCount = 0;
+  var zips = [];
+
+  while(zips.length < targetCount)
+  {
+    for(i=0;i<zipFull1.length-5;i++)
+    {
+      var location1 = zipcodes.lookup(zipFull1.substr(i,5));
+      if(location1)
+      {
+        zips.push(location1);
+        if(zips.length==targetCount) {
+          return zips;
+        }
+        console.log("PUSHED valid " + location1);
+      }
+    }
+    if(zips.length < 4)
+    {
+      hash = md5(zipFull1);
+      console.log("rehashing " + zipFull1);
+      zipFull1 = hash.replace(/\D/g,'');
+      console.log(" for " + zipFull1);
+    }
+  }
+  return zips;
+}
+
+
+
+router.get('/board/', function(req, res, next) {
+  var fullHash = req.query.matric_value
+  zipFull1 = fullHash.replace(/\D/g,'');
+  var locations = extractZips(fullHash,5);
+  res.json({board:locations});
+});
 
 
 /* create matric, add, return json to the user */
@@ -78,7 +120,6 @@ router.get('/scan/', function(req, res, next) {
   }
 
 
-  const salt = "11:11_777222RAVEN222777_22:22";
 
   //build hashchain
   var cards = {};
