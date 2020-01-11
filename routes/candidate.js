@@ -50,6 +50,7 @@ function extractZips(zipFull1,targetCount)
       var location1 = zipcodes.lookup(zipFull1.substr(i,5));
       if(location1)
       {
+        location1.flag = "http://flags.ox3.in/svg/us/"+ location1.state.toLowerCase() +".svg"
         zips.push(location1);
         if(zips.length==targetCount) {
           return zips;
