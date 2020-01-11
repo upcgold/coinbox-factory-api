@@ -50,7 +50,43 @@ function extractZips(zipFull1,targetCount)
       var location1 = zipcodes.lookup(zipFull1.substr(i,5));
       if(location1)
       {
-        location1.flag = "http://flags.ox3.in/svg/us/"+ location1.state.toLowerCase() +".svg"
+        location1.flag = "http://flags.ox3.in/svg/us/"+ location1.state.toLowerCase() +".svg";
+
+
+        if(
+          location1.zip.substr(0,1) == '0' ||
+          location1.zip.substr(0,1) == '1' ||
+          location1.zip.substr(0,1) == '2' ||
+          location1.zip.substr(0,1) == '3' 
+          ) {
+            location1.tribe = 'Avataaar';
+          }
+          else if(
+            location1.zip.substr(0,1) == '4' ||
+            location1.zip.substr(0,1) == '5' ||
+            location1.zip.substr(0,1) == '6' ||
+            location1.zip.substr(0,1) == '7' 
+            ) {
+              location1.tribe = 'Human';
+          }
+          else if(
+            location1.zip.substr(0,1) == '8' ||
+            location1.zip.substr(0,1) == '9' ||
+            location1.zip.substr(0,1) == 'a' ||
+            location1.zip.substr(0,1) == 'b' 
+            ) {
+              location1.tribe = 'Bottts';
+          }
+          else if(
+            location1.zip.substr(0,1) == 'c' ||
+            location1.zip.substr(0,1) == 'd' ||
+            location1.zip.substr(0,1) == 'e' ||
+            location1.zip.substr(0,1) == 'f' 
+            ) {
+              location1.tribe = 'Jonger';
+          }
+
+
         zips.push(location1);
         if(zips.length==targetCount) {
           return zips;
