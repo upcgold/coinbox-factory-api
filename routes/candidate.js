@@ -202,6 +202,9 @@ router.get('/dejavu/', function (req, res, next) {
       break;
   }
 
+  card.hash = hash;
+  card.promoCode = hash.substr(0,4);
+
   res.json({ card: card });
 });
 
