@@ -9,26 +9,21 @@ const salt = "11:11_777222RAVEN222777_22:22";
 //this card will be cached in mongo
 //and when the card data is stored, the card is returned to the user.
 
-function extractZip(zipFull1)
-{
+function extractZip(zipFull1) {
   location1Valid = false;
-  while(!location1Valid)
-  {
-    for(i=0;i<zipFull1.length-5;i++)
-    {
-      var location1 = zipcodes.lookup(zipFull1.substr(i,5));
-      if(location1)
-      {
+  while (!location1Valid) {
+    for (i = 0; i < zipFull1.length - 5; i++) {
+      var location1 = zipcodes.lookup(zipFull1.substr(i, 5));
+      if (location1) {
         location1Valid = true;
         break;
       }
-      console.log("trying " + zipFull1.substr(i,5));
+      console.log("trying " + zipFull1.substr(i, 5));
     }
-    if(!location1)
-    {
+    if (!location1) {
       hash = md5(zipFull1);
       console.log("rehashing " + zipFull1);
-      zipFull1 = hash.replace(/\D/g,'');
+      zipFull1 = hash.replace(/\D/g, '');
       console.log(" for " + zipFull1);
     }
   }
@@ -36,87 +31,191 @@ function extractZip(zipFull1)
 }
 
 
-function extractZips(zipFull1,targetCount)
-{
+function extractZips(zipFull1, targetCount) {
 
   location1Valid = false;
   var currentCount = 0;
   var zips = [];
 
-  while(zips.length < targetCount)
-  {
-    for(i=0;i<zipFull1.length-5;i++)
-    {
-      var location1 = zipcodes.lookup(zipFull1.substr(i,5));
-      if(location1)
-      {
-        location1.flag = "http://flags.ox3.in/svg/us/"+ location1.state.toLowerCase() +".svg";
+  while (zips.length < targetCount) {
+    for (i = 0; i < zipFull1.length - 5; i++) {
+      var location1 = zipcodes.lookup(zipFull1.substr(i, 5));
+      if (location1) {
+        location1.flag = "http://flags.ox3.in/svg/us/" + location1.state.toLowerCase() + ".svg";
 
 
-        if(
-          location1.zip.substr(0,1) == '0' ||
-          location1.zip.substr(0,1) == '1' ||
-          location1.zip.substr(0,1) == '2' ||
-          location1.zip.substr(0,1) == '3' 
-          ) {
-            location1.tribe = 'Avataaar';
-          }
-          else if(
-            location1.zip.substr(0,1) == '4' ||
-            location1.zip.substr(0,1) == '5' ||
-            location1.zip.substr(0,1) == '6' ||
-            location1.zip.substr(0,1) == '7' 
-            ) {
-              location1.tribe = 'Human';
-          }
-          else if(
-            location1.zip.substr(0,1) == '8' ||
-            location1.zip.substr(0,1) == '9' ||
-            location1.zip.substr(0,1) == 'a' ||
-            location1.zip.substr(0,1) == 'b' 
-            ) {
-              location1.tribe = 'Bottts';
-          }
-          else if(
-            location1.zip.substr(0,1) == 'c' ||
-            location1.zip.substr(0,1) == 'd' ||
-            location1.zip.substr(0,1) == 'e' ||
-            location1.zip.substr(0,1) == 'f' 
-            ) {
-              location1.tribe = 'Jonger';
-          }
+        if (
+          location1.zip.substr(0, 1) == '0' ||
+          location1.zip.substr(0, 1) == '1' ||
+          location1.zip.substr(0, 1) == '2' ||
+          location1.zip.substr(0, 1) == '3'
+        ) {
+          location1.tribe = 'Avataaar';
+        }
+        else if (
+          location1.zip.substr(0, 1) == '4' ||
+          location1.zip.substr(0, 1) == '5' ||
+          location1.zip.substr(0, 1) == '6' ||
+          location1.zip.substr(0, 1) == '7'
+        ) {
+          location1.tribe = 'Human';
+        }
+        else if (
+          location1.zip.substr(0, 1) == '8' ||
+          location1.zip.substr(0, 1) == '9' ||
+          location1.zip.substr(0, 1) == 'a' ||
+          location1.zip.substr(0, 1) == 'b'
+        ) {
+          location1.tribe = 'Bottts';
+        }
+        else if (
+          location1.zip.substr(0, 1) == 'c' ||
+          location1.zip.substr(0, 1) == 'd' ||
+          location1.zip.substr(0, 1) == 'e' ||
+          location1.zip.substr(0, 1) == 'f'
+        ) {
+          location1.tribe = 'Jonger';
+        }
 
 
         zips.push(location1);
-        if(zips.length==targetCount) {
+        if (zips.length == targetCount) {
           return zips;
         }
         console.log("PUSHED valid " + location1);
       }
     }
-    if(zips.length < 4)
-    {
+    if (zips.length < 4) {
       hash = md5(zipFull1);
       console.log("rehashing " + zipFull1);
-      zipFull1 = hash.replace(/\D/g,'');
+      zipFull1 = hash.replace(/\D/g, '');
       console.log(" for " + zipFull1);
     }
   }
   return zips;
 }
 
+router.get('/dejavu/', function (req, res, next) {
+  var hash = md5(req.query.matric_value);
 
 
-router.get('/board/', function(req, res, next) {
+
+  var card = {};
+
+
+  switch (hash.substr(0, 1)) {
+    case '0':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Amber";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '1':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879675-stock-photo-stripper-sign.jpg";
+      card.girlName = "Ashlee";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '2':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Jessie";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '3':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Nina";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '4':
+      card.deal = "$5 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Zoie";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '5':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Kora";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '6':
+      card.deal = "$10 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Farrah";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '7':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Cara";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '8':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Hayleigh";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case '9':
+      card.deal = "$1 of cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Paige";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'a':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Willow";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'b':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Melanie";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'c':
+      card.deal = "$3 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Olivia";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'd':
+      card.deal = "$2 off drink";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Phoebe";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'e':
+      card.deal = "$1 off drink";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Katie";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+    case 'f':
+      card.deal = "$1 off cover";
+      card.pic = "https://st2.depositphotos.com/1454700/5987/i/950/depositphotos_59879125-stock-photo-stripper-sign.jpg";
+      card.girlName = "Jasilyn";
+      card.girlBio  = "Lorem ipsum dolor sit amet, ei sit oblique probatus. Eu enim lucilius pro, soluta populo cu vim. Eu has adhuc platonem vituperata, his nihil causae singulis te, ne quo tale veri. Eos no harum possim, an sea debitis omnesque, case erant scripta ex pri.";
+      break;
+  }
+
+  res.json({ card: card });
+});
+
+
+router.get('/board/', function (req, res, next) {
   var fullHash = req.query.matric_value
-  zipFull1 = fullHash.replace(/\D/g,'');
-  var locations = extractZips(fullHash,5);
-  res.json({board:locations});
+  zipFull1 = fullHash.replace(/\D/g, '');
+  var locations = extractZips(fullHash, 5);
+  res.json({ board: locations });
 });
 
 
 /* create matric, add, return json to the user */
-router.get('/scan/', function(req, res, next) {
+router.get('/scan/', function (req, res, next) {
 
   var suits = {
     "0": "S",
@@ -160,20 +259,20 @@ router.get('/scan/', function(req, res, next) {
 
   //build hashchain
   var cards = {};
-  var hash  = md5(salt + req.query.matric_value + salt);
+  var hash = md5(salt + req.query.matric_value + salt);
 
   var hashBlue = md5(hash + "777blue777");
-  zipFull1 = hashBlue.replace(/\D/g,'');
+  zipFull1 = hashBlue.replace(/\D/g, '');
   location1 = extractZip(zipFull1);
   //zipFull1 = "000000000";  uncomment for testing to make sure that invalid zip string is rehashed
 
 
   var hashRed = md5(hash + "777red777");
-  zipFull2 = hashRed.replace(/\D/g,'');
+  zipFull2 = hashRed.replace(/\D/g, '');
   location2 = extractZip(zipFull2);
 
 
-  var searchSuite = hashBlue.substr(0,1);
+  var searchSuite = hashBlue.substr(0, 1);
   var searchNum = hashBlue.substr(-1);;
 
   var suit = suits[searchSuite];
@@ -184,15 +283,15 @@ router.get('/scan/', function(req, res, next) {
     "originalScan": req.query.matric_value,
     "parentHash": hash,
     "hash": hashBlue,
-    "suit" : suit,
+    "suit": suit,
     "number": number,
     "city": location1.city,
     "state": location1.state,
-    "zip":  location1.zip,
+    "zip": location1.zip,
   };
 
 
-  var searchSuite2 = hashRed.substr(0,1);
+  var searchSuite2 = hashRed.substr(0, 1);
   var searchNum2 = hashRed.substr(-1);;
 
   var suit2 = suits[searchSuite2];
@@ -202,42 +301,42 @@ router.get('/scan/', function(req, res, next) {
     "originalScan": req.query.matric_value,
     "parentHash": hash,
     "hash": hashRed,
-    "suit" : suit2,
+    "suit": suit2,
     "number": number2,
     "city": location2.city,
     "state": location2.state,
-    "zip":  location2.zip,
+    "zip": location2.zip,
   };
 
   getCandidate(hashBlue)
-  .then(function(val) {
-    card1.name = val.data.name;
-    card1.matchupId = val.data.matchupId;
-    card1.storeUrl = val.data.storeUrl;
-    card1.img = val.data.img;
-    card1.video = val.data.video;
-    cards.card1 = card1
-    
+    .then(function (val) {
+      card1.name = val.data.name;
+      card1.matchupId = val.data.matchupId;
+      card1.storeUrl = val.data.storeUrl;
+      card1.img = val.data.img;
+      card1.video = val.data.video;
+      cards.card1 = card1
 
-    card2.name="President Donald J. Trump";
-    card2.storeUrl="trump.2020.codes";
-    card2.img="https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
-    card2.hash=hashRed;
-    card2.matchupId=val.data.matchupId;
-    card2.difficulty=0;
-    card2.video = "Tig8y7L2g1s";
 
-    cards.card2 = card2;
+      card2.name = "President Donald J. Trump";
+      card2.storeUrl = "trump.2020.codes";
+      card2.img = "https://media.graytvinc.com/images/810*462/0611Donald+Trump+MGN+Brian+Copeland.jpg";
+      card2.hash = hashRed;
+      card2.matchupId = val.data.matchupId;
+      card2.difficulty = 0;
+      card2.video = "Tig8y7L2g1s";
 
-    console.log(cards);
-    res.json(cards);
-  });
-  
+      cards.card2 = card2;
+
+      console.log(cards);
+      res.json(cards);
+    });
+
 
 });
 
 function getCandidate(hash) {
-  return axios.get('http://candihash:7001/candidates/candidate?matric_value='+hash);
+  return axios.get('http://candihash:7001/candidates/candidate?matric_value=' + hash);
 }
 
 
