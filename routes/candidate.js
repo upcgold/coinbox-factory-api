@@ -97,7 +97,7 @@ function extractZips(zipFull1, targetCount) {
 
 router.get('/dejavu/', function (req, res, next) {
   var hash = md5(req.query.matric_value);
-
+  var originalScan = req.query.matric_value;
 
 
   var card = {};
@@ -203,7 +203,8 @@ router.get('/dejavu/', function (req, res, next) {
   }
 
   card.hash = hash;
-  card.promoCode = hash.substr(0,4);
+  card.promoCode = hash.substr(0,5);
+  card.originalScan = originalScan;
 
   res.json({ card: card });
 });
