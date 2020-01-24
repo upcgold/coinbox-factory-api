@@ -98,6 +98,115 @@ function extractZips(zipFull1, targetCount) {
 
 ////////////////////////
 /////
+///// rivals.wally.codes
+/////
+////////////////////////
+router.get('/rivals/', function (req, res, next) {
+  var hash = md5(req.query.matric_value);
+  var originalScan = req.query.matric_value;
+
+
+  var card = {};
+
+
+  switch (hash.substr(0, 1)) {
+    case '0':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '1':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '2':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '3':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '4':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '5':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '6':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '7':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '8':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '9':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'a':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'b':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'c':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'd':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'e':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'f':
+      card.vid = "qRocwyD9Yo4";
+      card.deal = "$3 off any t-shirt";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+  }
+
+  card.hash = hash;
+  card.promoCode = hash.substr(0,5);
+  card.originalScan = originalScan;
+
+  res.json({ card: card });
+});
+
+
+
+
+
+
+
+////////////////////////
+/////
 ///// Hashtag.green
 /////
 ////////////////////////
