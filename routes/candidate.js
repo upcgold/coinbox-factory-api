@@ -113,82 +113,66 @@ router.get('/rivals/', function (req, res, next) {
     case '0':
       card.vid = "Fp6YAw4YeaA";
       card.deal = "Spin the crypto wheel (Must sign up for wallet at https://www.coinbase.com)";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '1':
       card.vid = "MeGdbjL7OjU";
       card.deal = "Surprise in a red box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '2':
       card.vid = "87ztl_H1AXw";
       card.deal = "Surprise in a green box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '3':
       card.vid = "thEfZDHBGWs";
       card.deal = "25% off your entire order";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '4':
       card.vid = "5X00-IEQEDY";
       card.deal = "$3 off order";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '5':
       card.vid = "4Ir5nz6aFRw";
       card.deal = "Free bandana with purchase";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '6':
-      card.vid = "qRocwyD9Yo4";
       card.vid = "thEfZDHBGWs";
       card.deal = "25% off your entire order";
       break;
     case '7':
-      card.vid = "qRocwyD9Yo4";
       card.vid = "thEfZDHBGWs";
       card.deal = "25% off your entire order";
       break;
     case '8':
       card.vid = "Fp6YAw4YeaA";
       card.deal = "Spin the crypto wheel (Must sign up for wallet at https://www.coinbase.com)";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case '9':
       card.vid = "MeGdbjL7OjU";
       card.deal = "Surprise in a red box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case 'a':
-      card.vid = "qRocwyD9Yo4";
       card.vid = "Fp6YAw4YeaA";
       card.deal = "Spin the crypto wheel (Must sign up for wallet at https://www.coinbase.com)";
       break;
     case 'b':
       card.vid = "Fp6YAw4YeaA";
       card.deal = "Spin the crypto wheel (Must sign up for wallet at https://www.coinbase.com)";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case 'c':
+      card.vid = "87ztl_H1AXw";
       card.deal = "Surprise in a green box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case 'd':
       card.vid = "MeGdbjL7OjU";
       card.deal = "Surprise in a red box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case 'e':
+      card.vid = "87ztl_H1AXw";
       card.deal = "Surprise in a green box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
     case 'f':
-      card.vid = "qRocwyD9Yo4";
+      card.vid = "87ztl_H1AXw";
       card.deal = "Surprise in a green box";
-      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
       break;
   }
 
