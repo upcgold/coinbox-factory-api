@@ -95,6 +95,101 @@ function extractZips(zipFull1, targetCount) {
   return zips;
 }
 
+
+////////////////////////
+/////
+///// Hashtag.green
+/////
+////////////////////////
+router.get('/hashgreen/', function (req, res, next) {
+  var hash = md5(req.query.matric_value);
+  var originalScan = req.query.matric_value;
+
+
+  var card = {};
+
+
+  switch (hash.substr(0, 1)) {
+    case '0':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '1':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '2':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '3':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '4':
+      card.deal = "10% off purchase";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '5':
+      card.deal = "$5 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '6':
+      card.deal = "$1 gram flower";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '7':
+      card.deal = "Free gram of flower";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '8':
+      card.deal = "Free gram of flower";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case '9':
+      card.deal = "10% off purchase";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'a':
+      card.deal = "Free pack of rolling paper";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'b':
+      card.deal = "Free pack of rolling paper";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'c':
+      card.deal = "Free grinder";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'd':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'e':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+    case 'f':
+      card.deal = "$1 preroll";
+      card.pic = "https://www.gannett-cdn.com/-mm-/3eb9009c1a9366e33a28c376eca11ea26824544a/c=0-44-580-370/local/-/media/2017/11/05/USATODAY/usatsports/marijuana-joint-over-cannabis-leaf-pot-weed-legalize-getty_large.jpg?width=580&height=326&fit=crop&format=pjpg&auto=webp";
+      break;
+  }
+
+  card.hash = hash;
+  card.promoCode = hash.substr(0,5);
+  card.originalScan = originalScan;
+
+  res.json({ card: card });
+});
+
+
+
+////////////////////////
+/////
+/////De Ja Vu
+/////
+////////////////////////
 router.get('/dejavu/', function (req, res, next) {
   var hash = md5(req.query.matric_value);
   var originalScan = req.query.matric_value;
@@ -208,6 +303,18 @@ router.get('/dejavu/', function (req, res, next) {
 
   res.json({ card: card });
 });
+
+
+////////////////////////
+/////
+/////BOARD
+/////
+////////////////////////
+
+
+
+
+
 
 
 router.get('/board/', function (req, res, next) {
