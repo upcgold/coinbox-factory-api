@@ -159,7 +159,7 @@ var bloomberg = {
   var matchupMeta = buildMatchupMeta(ballot);
   ballot[0].matchupName = matchupMeta.matchupName;
   ballot[1].matchupName = matchupMeta.matchupName;
-  res.json({card1:ballot[0],card1:ballot[1]});
+  res.json({card1:ballot[0],card2:ballot[1]});
 
 });
 
