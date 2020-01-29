@@ -26,7 +26,8 @@ router.get('/caucus/', function (req, res, next) {
 
   //need to do the mapping one time someplace else
 
-  var matric = req.query.matric_value;
+  var matric = md5(req.query.matric_value);
+
   var ballot = [];
 
   var sanders = {
