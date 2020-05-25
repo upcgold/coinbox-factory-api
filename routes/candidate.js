@@ -14,7 +14,7 @@ function extractZip(zipFull1) {
   while (!location1Valid) {
     for (i = 0; i < zipFull1.length - 5; i++) {
       var location1 = zipcodes.lookup(zipFull1.substr(i, 5));
-      if (location1) {
+      if (location1 && location.state != 'AE') {
         location1Valid = true;
         break;
       }
