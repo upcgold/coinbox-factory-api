@@ -387,7 +387,7 @@ router.get('/dejavu/', function (req, res, next) {
 //
 /////////////
 router.get('/_msearch/', function (req, res, next) {
-  res.json({ board: req });
+  res.json({ board: "hello!" });
 });
 
 
