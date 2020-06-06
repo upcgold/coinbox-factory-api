@@ -4,14 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var bodyParser = require('body-parser')
-app.use(bodyParser.json())
 
 var indexRouter = require('./routes/index');
 var candidateRouter = require('./routes/candidate');
 var electionRouter = require('./routes/election');
 var app = express()
 
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
 var cors = require('cors')
 app.use(cors())
 
