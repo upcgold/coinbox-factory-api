@@ -10,6 +10,7 @@ var electionRouter = require('./routes/election');
 var app = express()
 
 var cors = require('cors')
+var bodyParser = require('body-parser')
 
 app.use(cors())
 
@@ -17,6 +18,7 @@ app.use(cors())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
