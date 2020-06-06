@@ -13,6 +13,8 @@ router.get('/', function(req, res, next) {
 /////////////
 router.post('/_msearch/', function (req, res, next) {
   //res.json({ board: "hello!" });
+
+	console.print(req.body);
   res.json({ board: req.body });
 });
 
