@@ -386,8 +386,8 @@ router.get('/dejavu/', function (req, res, next) {
 //ES WRAPPER
 //
 /////////////
-router.get('/_msearch/', function (req, res, next) {
-  res.json({ board: "hello!" });
+router.post('/_msearch/xhamster-videos/', function (req, res, next) {
+  res.json({ board: req.body });
 });
 
 
