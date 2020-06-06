@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 //
 /////////////
 router.post('/_msearch/', function (req, res, next) {
-  res.json({ board: "hello!" });
-//  res.json({ board: req.body });
+  //res.json({ board: "hello!" });
+  res.json({ board: req.body });
 });
 
 
