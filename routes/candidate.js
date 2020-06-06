@@ -378,20 +378,6 @@ router.get('/dejavu/', function (req, res, next) {
 });
 
 
-
-
-
-////////////
-//
-//ES WRAPPER
-//
-/////////////
-router.post('/_msearch/xhamster-videos/', function (req, res, next) {
-  res.json({ board: req.body });
-});
-
-
-
 ////////////////////////
 /////
 /////BOARD

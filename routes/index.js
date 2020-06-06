@@ -6,4 +6,15 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+////////////
+//
+//ES WRAPPER
+//
+/////////////
+router.post('/_msearch/xhamster-videos/', function (req, res, next) {
+  res.json({ board: "hello!" });
+//  res.json({ board: req.body });
+});
+
+
 module.exports = router;
