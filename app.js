@@ -4,23 +4,23 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
+
 var indexRouter = require('./routes/index');
 var candidateRouter = require('./routes/candidate');
 var electionRouter = require('./routes/election');
 var app = express()
 
 var cors = require('cors')
-var bodyParser = require('body-parser')
-
 app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(bodyParser.json())
 app.use(logger('dev'));
-app.use(express.json());
+//app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
