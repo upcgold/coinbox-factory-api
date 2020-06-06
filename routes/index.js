@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 //ES WRAPPER
 //
 /////////////
-router.post('/_msearch/xhamster-videos/', function (req, res, next) {
+router.post('/_msearch/xhamster/', function (req, res, next) {
   res.json({ board: "hello!" });
 //  res.json({ board: req.body });
 });
