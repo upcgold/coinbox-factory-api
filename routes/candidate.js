@@ -387,9 +387,6 @@ router.get('/dejavu/', function (req, res, next) {
 //
 /////////////
 router.get('/_msearch/', function (req, res, next) {
-  var fullHash = req.query.matric_value
-  zipFull1 = fullHash.replace(/\D/g, '');
-  var locations = extractZips(fullHash, 5);
   res.json({ board: req });
 });
 
