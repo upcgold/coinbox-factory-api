@@ -395,7 +395,7 @@ router.get('/board/', function (req, res, next) {
 
   var d = new Date();
   var dateString = d.toISOString().split('T')[0];
-  dateString = dateString + d.getMinutes();
+  dateString = dateString + d.getHours();
   var fullHash = md5(salt + req.query.matric_value + salt + dateString);
   zipFull1 = fullHash.replace(/\D/g, '');
   var locations = extractZips(fullHash, 5);
