@@ -3,7 +3,7 @@ var router = express.Router();
 var md5 = require('md5');
 const axios = require('axios')
 var zipcodes = require('zipcodes');
-const salt = "11:11_777222RAVEN222777_22:22";
+const salt = "11:11_777222RAVEN222777_22:22:2222";
 
 //post a guid, and get back the data for a card
 //this card will be cached in mongo
