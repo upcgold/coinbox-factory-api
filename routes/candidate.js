@@ -391,7 +391,8 @@ router.get('/dejavu/', function (req, res, next) {
 
 
 router.get('/board/', function (req, res, next) {
-  var fullHash = req.query.matric_value
+  //var fullHash = req.query.matric_value
+  var fullHash = md5(salt + req.query.matric_value + salt);
   zipFull1 = fullHash.replace(/\D/g, '');
   var locations = extractZips(fullHash, 5);
   res.json({ board: locations });
