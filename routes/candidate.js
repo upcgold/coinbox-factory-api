@@ -93,6 +93,7 @@ function extractZips(zipFull1, targetCount) {
   location1Valid = false;
   var currentCount = 0;
   var zips = [];
+  var capitalCard = false;
 
   while (zips.length < targetCount) {
     for (i = 0; i < zipFull1.length - 5; i++) {
@@ -120,15 +121,21 @@ function extractZips(zipFull1, targetCount) {
           location1.tribe = 'ad';
         }
 	
-	console.log(Object.entries(CAPITALS));
-
+	for(var i in CAPITALS) {
+	  if( (i == location1.state) && (location1.city == CAPITALS[i])) {
+            capitalCard = true
+	  }
+	}
         zips.push(location1);
-        if (zips.length == targetCount) {
-          return zips;
-        }
-        console.log("PUSHED valid " + location1);
       }
     }
+  }
+
+  if(capitalCard) {
+    console.log("capital card " + location1.state + " is " + location1.city); 
+  }
+  else {
+    console.log("normal card " + location1.state + " is " + location1.city); 
   }
   return zips;
 }
@@ -588,3 +595,4 @@ function getCandidate(hash) {
 
 
 module.exports = router;
+
