@@ -68,6 +68,8 @@ CAPITALS.WY = "Cheyenne";
 
 function extractZip(zipFull1) {
   location1Valid = false;
+  var zips = [];
+
   var location1;
   while (!location1Valid) {
     for (i = 0; i < zipFull1.length - 5; i++) {
@@ -80,18 +82,16 @@ function extractZip(zipFull1) {
                   location1.tribe = "Capital";
           }
         }
+        zips.push(location1);
         break;
       }
-      console.log("trying " + zipFull1.substr(i, 5));
     }
     if (!location1) {
       hash = md5(zipFull1);
-      console.log("rehashing " + zipFull1);
       zipFull1 = hash.replace(/\D/g, '');
-      console.log(" for " + zipFull1);
     }
   }
-  return location1;
+  return zips;
 }
 
 
