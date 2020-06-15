@@ -8,6 +8,7 @@ const salt = "11:11_777222RAVEN222777_22:22:2222";
 
 const CAPITALS = {};
 
+CAPITALS.DC = "Washington";
 
 CAPITALS.AL = "Montgomery";
 CAPITALS.AK = "Juneau";
