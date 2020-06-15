@@ -120,6 +120,7 @@ function extractZips(zipFull1, targetCount) {
           location1.tribe = 'ad';
         }
 	
+	console.log(Object.entries(CAPITALS));
 
         zips.push(location1);
         if (zips.length == targetCount) {
