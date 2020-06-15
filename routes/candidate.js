@@ -5,6 +5,63 @@ const axios = require('axios')
 var zipcodes = require('zipcodes');
 const salt = "11:11_777222RAVEN222777_22:22:2222";
 
+
+const CAPITALS = {};
+
+
+CAPITALS.AL = "Montgomery";
+CAPITALS.AK = "Juneau";
+CAPITALS.AZ = "Phoenix";
+CAPITALS.AR = "Little Rock";
+CAPITALS.CA = "Sacramento";
+CAPITALS.CO = "Denver";
+CAPITALS.CT = "Hartford";
+CAPITALS.DW = "Dover";
+CAPITALS.FL = "Tallahassee";
+CAPITALS.GA = "Atlanta";
+CAPITALS.HI = "Honolulu";
+CAPITALS.ID = "Boise";
+CAPITALS.IL = "Springfield";
+CAPITALS.IN = "Indianapolis";
+CAPITALS.IA = "Des Moines";
+CAPITALS.KS = "Topeka";
+CAPITALS.KY = "Frankfort";
+CAPITALS.LA = "Baton Rouge";
+CAPITALS.ME = "Augusta";
+CAPITALS.MD = "Annapolis";
+CAPITALS.MA = "Boston";
+CAPITALS.MI = "Lansing";
+CAPITALS.MN = "Saint Paul";
+CAPITALS.MS = "Jackson";
+CAPITALS.MO = "Jefferson City";
+CAPITALS.MT = "Helena";
+CAPITALS.NE = "Lincoln";
+CAPITALS.NV = "Carson City";
+CAPITALS.NH = "Concord";
+CAPITALS.NJ = "Trenton";
+CAPITALS.NM = "Santa Fe";
+CAPITALS.NY = "Albany";
+CAPITALS.NC = "Raleigh";
+CAPITALS.ND = "Bismark";
+CAPITALS.OH = "Columbus";
+CAPITALS.OK = "Oklahoma City";
+CAPITALS.OR = "Salem";
+CAPITALS.PA = "Harrisburg";
+CAPITALS.RI = "Providence";
+CAPITALS.SC = "Columbia";
+CAPITALS.SD = "Pierre";
+CAPITALS.TN = "Nashville";
+CAPITALS.TX = "Austin";
+CAPITALS.UT = "Salt Lake City";
+CAPITALS.VT = "Montpelier";
+CAPITALS.VA = "Richmond";
+CAPITALS.WA = "Olympia";
+CAPITALS.WV = "Charleston";
+CAPITALS.WI = "Madison";
+CAPITALS.WY = "Cheyenne";
+
+
+
 //post a guid, and get back the data for a card
 //this card will be cached in mongo
 //and when the card data is stored, the card is returned to the user.
@@ -58,18 +115,18 @@ function extractZips(zipFull1, targetCount) {
           location1.tribe = 'card';
         }
 
+
+        if ( location1.zip.substr(0, 1) == 'a') {
+          location1.tribe = 'ad';
+        }
+	
+
         zips.push(location1);
         if (zips.length == targetCount) {
           return zips;
         }
         console.log("PUSHED valid " + location1);
       }
-    }
-    if (zips.length < 4) {
-      hash = md5(zipFull1);
-      console.log("rehashing " + zipFull1);
-      zipFull1 = hash.replace(/\D/g, '');
-      console.log(" for " + zipFull1);
     }
   }
   return zips;
