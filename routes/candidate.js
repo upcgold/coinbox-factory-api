@@ -68,11 +68,18 @@ CAPITALS.WY = "Cheyenne";
 
 function extractZip(zipFull1) {
   location1Valid = false;
+  var location1;
   while (!location1Valid) {
     for (i = 0; i < zipFull1.length - 5; i++) {
-      var location1 = zipcodes.lookup(zipFull1.substr(i, 5));
-      if (location1 && location.state != 'AE') {
+      location1 = zipcodes.lookup(zipFull1.substr(i, 5));
+      if (location1 && location1.state != 'AE') {
         location1Valid = true;
+        location1.tribe = "Normal";
+        for(var i in CAPITALS) {
+          if( (i == location1.state) && (location1.city == CAPITALS[i])) {
+                  location1.tribe = "Capital";
+          }
+        }
         break;
       }
       console.log("trying " + zipFull1.substr(i, 5));
@@ -94,38 +101,19 @@ function extractZips(zipFull1, targetCount) {
   var currentCount = 0;
   var zips = [];
   var capitalCard = false;
+  targetCount = 1;
 
   while (zips.length < targetCount) {
     for (i = 0; i < zipFull1.length - 5; i++) {
       var location1 = zipcodes.lookup(zipFull1.substr(i, 5));
       if (location1) {
-        location1.flag = "http://flags.ox3.in/svg/us/" + location1.state.toLowerCase() + ".svg";
-
-
-        if (
-          location1.zip.substr(0, 1) == 'a'
-        ) {
-          location1.tribe = 'ad';
+/*
+        for(var i in CAPITALS) {
+          if( (i == location1.state) && (location1.city == CAPITALS[i])) {
+                  capitalCard = true
+          }
         }
-        else if (
-          location1.zip.substr(0, 1) == 'c'
-        ) {
-          location1.tribe = 'code';
-        }
-        else {
-          location1.tribe = 'card';
-        }
-
-
-        if ( location1.zip.substr(0, 1) == 'a') {
-          location1.tribe = 'ad';
-        }
-	
-	for(var i in CAPITALS) {
-	  if( (i == location1.state) && (location1.city == CAPITALS[i])) {
-            capitalCard = true
-	  }
-	}
+        */
         zips.push(location1);
       }
     }
@@ -463,7 +451,8 @@ router.get('/board/', function (req, res, next) {
   dateString = dateString + d.getHours();
   var fullHash = md5(salt + req.query.matric_value + salt + dateString);
   zipFull1 = fullHash.replace(/\D/g, '');
-  var locations = extractZips(fullHash, 5);
+  var locations = extractZip(fullHash);
+
   res.json({ board: locations });
 });
 
