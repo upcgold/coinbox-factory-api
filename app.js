@@ -16,6 +16,21 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+mailer = require('express-mailer');
+ 
+mailer.extend(app, {
+  from: 'Ytoob',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'ytoob.media@gmail.com',
+    pass: 'S1ngS!ngDingGornStine'
+  }
+});
+ 
+
 
 
 var cors = require('cors')

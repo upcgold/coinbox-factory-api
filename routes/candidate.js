@@ -3,6 +3,9 @@ var router = express.Router();
 var md5 = require('md5');
 const axios = require('axios')
 var zipcodes = require('zipcodes');
+require('dotenv').config();
+
+
 const salt = "11:11_777222RAVEN222777_22:22:2222";
 
 
@@ -431,6 +434,78 @@ router.get('/dejavu/', function (req, res, next) {
   res.json({ card: card });
 });
 
+
+
+
+
+
+
+////////////////////////
+/////
+///// REGISTER
+/////
+////////////////////////
+
+
+
+getQr = (value) => {
+
+var key = "23klj4;kl2j1;j4lk21;j4;kl2j1kj43;lk2j14bvco 78wqQWR!#@Rwaerfgq245SGvsdQW$%!qa1456uZSFASE$!Rae1r5rasd~!$#RQCFASer4awfASDFQ#faesfqwer!FVLHU&855896jgi&^%*&^%GGHJHCJHU5RK<hmbgt&67587GJ,B,ht&^i%ti&^f<b";
+  var hashValue = md5(key + value + key)
+  var qr = require('qr-image');
+  var filePath = "./public/" + hashValue + '.png'
+  var qr_svg = qr.image(value, { type: 'png', size: 10 });
+  qr_svg.pipe(require('fs').createWriteStream(filePath));
+  var svg_string = qr.imageSync(value, { type: 'png', size: 10 });
+  return filePath;
+}
+
+
+
+
+router.get('/register/', function (req, res, next) {
+  //var fullHash = req.query.matric_value
+
+  var email = req.query.email;
+  var filePath = getQr(email);
+
+  const nodemailer = require ('nodemailer');
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+//      user: process.env.EMAIL,
+//      pass: process.env.PASSWORD
+      user: "ytoob.media@gmail.com",
+      pass: "S1ngS!ngDingGornStine"
+    }
+  });
+
+  let mailOptions = {
+    from: "Ytoob Robot",
+    to: email,
+    subject: "test",
+    text: "testing the set",
+    attachments: [
+      {
+        path: filePath,
+        filename: "LOGIN.png"
+      }
+    ]
+  }
+
+  transporter.sendMail(mailOptions,function(err,info) {
+    if(err) {
+      console.log('error: ' , err)
+    }
+    else {
+      res.json({ message: "message sent!" });
+      console.log("message sent!")
+    }
+  })
+
+
+})
 
 ////////////////////////
 /////
