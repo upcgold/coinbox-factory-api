@@ -7,6 +7,7 @@ require('dotenv').config();
 
 
 const salt = "11:11_777222RAVEN222777_22:22:2222";
+const key = "23klj4;kl2j1;j4lk21;j4;kl2j1kj43;lk2j14bvco 78wqQWR!#@Rwaerfgq245SGvsdQW$%!qa1456uZSFASE$!Rae1r5rasd~!$#RQCFASer4awfASDFQ#faesfqwer!FVLHU&855896jgi&^%*&^%GGHJHCJHU5RK<hmbgt&67587GJ,B,ht&^i%ti&^f<b";
 
 
 const CAPITALS = {};
@@ -436,6 +437,53 @@ router.get('/dejavu/', function (req, res, next) {
 
 
 
+////////////////////////
+/////
+///// VALIDATE THE LOGIN QR AND RETURN BOOLEAN VALUE
+/////
+////////////////////////
+
+validateLogin = (value) => {
+
+  var loginIntentAscii = Buffer.from(value, 'base64').toString('ascii');
+  var loginIntent;
+  try {
+    loginIntent = JSON.parse(loginIntentAscii);
+  } catch(e) {
+    return false
+  }
+
+
+  if(loginIntent.hasOwnProperty('intent') && loginIntent.hasOwnProperty('email') && loginIntent.hasOwnProperty('key') ) {
+    var validKey = md5(key + loginIntent.email + key)
+    return validKey == loginIntent.key;
+  }
+  
+
+
+}
+
+
+
+////////////////////////
+/////
+/////LOGIN
+/////
+////////////////////////
+
+
+router.get('/loginQr/', function (req, res, next) {
+  //var fullHash = req.query.matric_value
+  var isLoginValid = false;
+  isLoginValid = validateLogin(req.query.loginIntent);
+  res.json({ validLogin: isLoginValid });
+});
+
+
+
+
+
+
 
 
 
@@ -450,13 +498,24 @@ router.get('/dejavu/', function (req, res, next) {
 
 getQr = (value) => {
 
-var key = "23klj4;kl2j1;j4lk21;j4;kl2j1kj43;lk2j14bvco 78wqQWR!#@Rwaerfgq245SGvsdQW$%!qa1456uZSFASE$!Rae1r5rasd~!$#RQCFASer4awfASDFQ#faesfqwer!FVLHU&855896jgi&^%*&^%GGHJHCJHU5RK<hmbgt&67587GJ,B,ht&^i%ti&^f<b";
   var hashValue = md5(key + value + key)
+
+  var loginProtocol = {
+    intent: "login",
+    email: value,
+    key: hashValue
+  };
+
+  var loginString = JSON.stringify(loginProtocol);
+  
+  var proto64 = Buffer.from(loginString).toString('base64');
+
+
   var qr = require('qr-image');
   var filePath = "./public/" + hashValue + '.png'
-  var qr_svg = qr.image(value, { type: 'png', size: 10 });
+  var qr_svg = qr.image(proto64, { type: 'png', size: 10 });
   qr_svg.pipe(require('fs').createWriteStream(filePath));
-  var svg_string = qr.imageSync(value, { type: 'png', size: 10 });
+  var svg_string = qr.imageSync(proto64, { type: 'png', size: 10 });
   return filePath;
 }
 
@@ -512,11 +571,6 @@ router.get('/register/', function (req, res, next) {
 /////BOARD
 /////
 ////////////////////////
-
-
-
-
-
 
 
 router.get('/board/', function (req, res, next) {
