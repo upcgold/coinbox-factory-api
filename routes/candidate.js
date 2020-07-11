@@ -456,11 +456,12 @@ validateLogin = (value) => {
 
   if(loginIntent.hasOwnProperty('intent') && loginIntent.hasOwnProperty('email') && loginIntent.hasOwnProperty('key') ) {
     var validKey = md5(key + loginIntent.email + key)
-    return validKey == loginIntent.key;
+    if(validKey == loginIntent.key) {
+      return loginIntent.email;
+    }
   }
   
-
-
+  return false
 }
 
 
