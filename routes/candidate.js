@@ -457,7 +457,7 @@ validateLogin = (value) => {
   if(loginIntent.hasOwnProperty('intent') && loginIntent.hasOwnProperty('email') && loginIntent.hasOwnProperty('key') ) {
     var validKey = md5(key + loginIntent.email + key)
     if(validKey == loginIntent.key) {
-      return loginIntent.email;
+      return value;
     }
   }
   
