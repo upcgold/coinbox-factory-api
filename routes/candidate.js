@@ -534,11 +534,12 @@ router.get('/register/', function (req, res, next) {
       console.log('error: ' , err)
     }
     else {
-      var statResults = initUserStats();
       res.json({ message: "message sent!" });
       console.log("message sent!")
     }
   })
+
+  initUserStats();
 })
 
 
