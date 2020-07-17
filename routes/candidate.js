@@ -534,6 +534,7 @@ router.get('/register/', function (req, res, next) {
       console.log('error: ' , err)
     }
     else {
+      var statResults = initUserStats();
       res.json({ message: "message sent!" });
       console.log("message sent!")
     }
@@ -585,7 +586,6 @@ initUserStats = () => {
 router.get('/board/', function (req, res, next) {
   //var fullHash = req.query.matric_value
 
-  var statResults = initUserStats();
   
   var d = new Date();
   var dateString = d.toISOString().split('T')[0];
