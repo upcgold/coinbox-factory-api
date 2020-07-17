@@ -3,6 +3,7 @@ var router = express.Router();
 var md5 = require('md5');
 const axios = require('axios')
 var zipcodes = require('zipcodes');
+const fetch = require("node-fetch");
 require('dotenv').config();
 
 
@@ -442,7 +443,6 @@ router.get('/dejavu/', function (req, res, next) {
 ///// VALIDATE THE LOGIN QR AND RETURN BOOLEAN VALUE
 /////
 ////////////////////////
-
 validateLogin = (value) => {
 
   var loginIntentAscii = Buffer.from(value, 'base64').toString('ascii');
@@ -452,7 +452,6 @@ validateLogin = (value) => {
   } catch(e) {
     return false
   }
-
 
   if(loginIntent.hasOwnProperty('intent') && loginIntent.hasOwnProperty('email') && loginIntent.hasOwnProperty('key') ) {
     var validKey = md5(key + loginIntent.email + key)
@@ -471,22 +470,11 @@ validateLogin = (value) => {
 /////LOGIN
 /////
 ////////////////////////
-
-
 router.get('/loginQr/', function (req, res, next) {
-  //var fullHash = req.query.matric_value
   var isLoginValid = false;
   isLoginValid = validateLogin(req.query.loginIntent);
   res.json({ validLogin: isLoginValid });
 });
-
-
-
-
-
-
-
-
 
 
 ////////////////////////
@@ -494,13 +482,8 @@ router.get('/loginQr/', function (req, res, next) {
 ///// REGISTER
 /////
 ////////////////////////
-
-
-
 getQr = (value) => {
-
   var hashValue = md5(key + value + key)
-
   var loginProtocol = {
     intent: "login",
     email: value,
@@ -508,10 +491,7 @@ getQr = (value) => {
   };
 
   var loginString = JSON.stringify(loginProtocol);
-  
   var proto64 = Buffer.from(loginString).toString('base64');
-
-
   var qr = require('qr-image');
   var filePath = "./public/" + hashValue + '.png'
   var qr_svg = qr.image(proto64, { type: 'png', size: 10 });
@@ -521,14 +501,9 @@ getQr = (value) => {
 }
 
 
-
-
 router.get('/register/', function (req, res, next) {
-  //var fullHash = req.query.matric_value
-
   var email = req.query.email;
   var filePath = getQr(email);
-
   const nodemailer = require ('nodemailer');
 
   let transporter = nodemailer.createTransport({
@@ -563,9 +538,43 @@ router.get('/register/', function (req, res, next) {
       console.log("message sent!")
     }
   })
-
-
 })
+
+
+//send a mutation to graphql and add the newly created user in order to track stats
+initUserStats = () => {
+
+  fetch("https://graphql.booty.codes/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      //"X-Shopify-Access-Token": "<access-token>"
+    },
+    //take in the query findProducts, it has 2 params
+    body: JSON.stringify({
+      query: `
+      mutation($input: createLevelupInput){
+        createLevelup(input: $input)
+        {
+          levelup{
+            id
+          }
+        }
+      }
+      `,
+      variables:  {input: {data: {"level": 0, "scans": 0, "points": 0,"token": "abcdefg"} } }
+    })
+  })
+    .then(result => {
+      return result.json();
+    })
+    .then(data => {
+      console.log("data returned:\n", data);
+      return data;
+    });
+
+}
+
 
 ////////////////////////
 /////
@@ -573,10 +582,11 @@ router.get('/register/', function (req, res, next) {
 /////
 ////////////////////////
 
-
 router.get('/board/', function (req, res, next) {
   //var fullHash = req.query.matric_value
 
+  var statResults = initUserStats();
+  
   var d = new Date();
   var dateString = d.toISOString().split('T')[0];
   dateString = dateString + d.getHours();
