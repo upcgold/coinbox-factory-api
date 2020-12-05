@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({
 mailer = require('express-mailer');
  
 mailer.extend(app, {
-  from: 'Ytoob',
+  from: 'UPC Grid',
   host: 'smtp.gmail.com', // hostname
   secureConnection: true, // use SSL
   port: 465, // port for secure SMTP
   transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
   auth: {
-    user: 'ytoob.media@gmail.com',
-    pass: 'S1ngS!ngDingGornStine'
+    user: 'upcgold@gmail.com',
+    pass: 'pass'
   }
 });
  
@@ -46,7 +46,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/xhamster-videos', indexRouter);
 app.use('/candidate', candidateRouter);
 app.use('/election', electionRouter);
 

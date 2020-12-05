@@ -1,13 +1,13 @@
 version: '2'
 
 services:
-  2020.polapi:
+  coinbox-factory.upcgold.io:
     environment:
-      - VIRTUAL_HOST=api.2020.codes
-      - LETSENCRYPT_HOST=api.2020.codes
+      - VIRTUAL_HOST=coinbox-factory.upcgold.io
+      - LETSENCRYPT_HOST=coinbox-factory.upcgold.io
     build: .
-    image: mountain/2020.polapi
-    container_name: 2020.polapi
+    image: mountain/coinbox-factory.upcgold.io
+    container_name: coinbox-factory.upcgold.io
     ports:
       # strapi runs on port 1337, so map this port out to port 7002 to access it.  the container always
       # specifies this it exposes this port in the Dockerfile.  to change this port (1337), change Dockerfile
